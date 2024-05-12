@@ -97,6 +97,7 @@ namespace game_framework {
 		void OnMouseMove(UINT nFlags, CPoint point);	// �B�z�ƹ����ʧ@ 
 		void OnRButtonDown(UINT nFlags, CPoint point);  // �B�z�ƹ����ʧ@
 		void OnRButtonUp(UINT nFlags, CPoint point);	// �B�z�ƹ����ʧ@
+		void showWindowCoordinate();
 	protected:
 		void OnMove();									// ���ʹC������
 		void OnShow();									// ��ܳo�Ӫ��A���C���e��

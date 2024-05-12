@@ -866,6 +866,7 @@ void CGameStateRun::OnShow()
 	
 
 	show_text_by_phase();
+	this->showWindowCoordinate();
 	
 }
 
@@ -1519,4 +1520,23 @@ int CGameStateRun::diamondNum() {
 	}
 	
 	return diamond_num;
+}
+
+void CGameStateRun::showWindowCoordinate() {
+	// 座標轉成字串
+	string text;
+	stringstream ss;
+	// 宣告顯示文字工具
+	CDC* pDC = CDDraw::GetBackCDC();
+	// Window 底下的API
+	POINT pt;							// 座標
+	HWND hWnd = GetForegroundWindow();	// 宣告並取得當前視窗的句柄
+	BOOL bReturn = GetCursorPos(&pt);	// 取得當前鼠標在Screen上的座標(若無return false)
+	ScreenToClient(hWnd, &pt);			// 將取得Screen的座標轉成當前視窗句柄的座標
+	if (bReturn != 0) {
+		ss << pt.x << ", " << pt.y;
+		text = ss.str();
+		CTextDraw::Print(pDC, 5, 5, text);
+	}
+	CDDraw::ReleaseBackCDC();
 }
