@@ -165,6 +165,7 @@ void Object::Button::setObject(int map_stage) {
 		purple_button[0].SetTopLeft(1290, purple_button_y[0]);
 		purple_button[1].SetTopLeft(0, purple_button_y[1]);
 		break;
+
 	case 4:
 		button1_y = 344;
 		button2_y = 0;
@@ -441,8 +442,8 @@ void Object::Ramp::showObject(int map_stage) {
 //Box
 void Object::Box::generateObject() {
 	box.LoadBitmapByString({ "Resources/box.bmp" }, RGB(255, 255, 255));
-	box_left.LoadBitmapByString({ "Resources/box_side.bmp" });
-	box_right.LoadBitmapByString({ "Resources/box_side.bmp" });
+	box_left.LoadBitmapByString({ "Resources/box_side.bmp" }, RGB(255, 255, 255));
+	box_right.LoadBitmapByString({ "Resources/box_side.bmp" }, RGB(255, 255, 255));
 }
 
 void Object::Box::setObject(int map_stage) {
@@ -495,6 +496,7 @@ void Object::Pond::generateObject() {
 	blue_pond[0].LoadBitmapByString({ "Resources/blue_pond.bmp" }, RGB(255, 255, 255));
 	short_red_pond.LoadBitmapByString({ "Resources/red_short_pond.bmp" }, RGB(255, 255, 255));
 	mid_blue_pond.LoadBitmapByString({ "Resources/blue_mid_pond.bmp" }, RGB(255, 255, 255));
+	long_long_pond.LoadBitmapByString({ "Resources/long_long_pond.bmp" }, RGB(255, 255, 255));
 
 	for (int i = 0; i < 2; i++) {
 		long_pond[i].LoadBitmapByString({ "Resources/long_green_pond.bmp" }, RGB(255, 255, 255));
@@ -527,6 +529,7 @@ void Object::Pond::setObject(int map_stage) {
 		mid_red_pond[0].SetTopLeft(0, 0);
 		mid_red_pond[1].SetTopLeft(0, 0);
 		mid_blue_pond.SetTopLeft(0, 0);
+		long_long_pond.SetTopLeft(0, 0);
 		break;
 
 	case 2:
@@ -545,6 +548,7 @@ void Object::Pond::setObject(int map_stage) {
 		mid_red_pond[0].SetTopLeft(0, 0);
 		mid_red_pond[1].SetTopLeft(0, 0);
 		mid_blue_pond.SetTopLeft(0, 0);
+		long_long_pond.SetTopLeft(0, 0);
 		break;
 
 	case 3:
@@ -563,6 +567,7 @@ void Object::Pond::setObject(int map_stage) {
 		mid_red_pond[0].SetTopLeft(770, 720);
 		mid_red_pond[1].SetTopLeft(730, 840);
 		mid_blue_pond.SetTopLeft(0, 0);
+		long_long_pond.SetTopLeft(0, 0);
 		break;
 	case 4:
 		pond.SetTopLeft(0, 0);
@@ -580,6 +585,7 @@ void Object::Pond::setObject(int map_stage) {
 		mid_red_pond[0].SetTopLeft(0, 0);
 		mid_red_pond[1].SetTopLeft(0, 0);
 		mid_blue_pond.SetTopLeft(0, 0);
+		long_long_pond.SetTopLeft(280, 840);
 		break;
 
 	case 5:
@@ -598,6 +604,7 @@ void Object::Pond::setObject(int map_stage) {
 		mid_red_pond[0].SetTopLeft(345, 300);
 		mid_red_pond[1].SetTopLeft(0, 0);
 		mid_blue_pond.SetTopLeft(905, 300);
+		long_long_pond.SetTopLeft(0, 0);
 		break;
 
 	}
@@ -627,8 +634,10 @@ void Object::Pond::showObject(int map_stage) {
 		short_red_pond.ShowBitmap();
 		mid_red_pond[0].ShowBitmap();
 		mid_red_pond[1].ShowBitmap();
+		
 		break;
 	case 4:
+		long_long_pond.ShowBitmap();
 		break;
 
 	case 5:
@@ -641,7 +650,6 @@ void Object::Pond::showObject(int map_stage) {
 		break;
 	}
 }
-
 //Diamond
 void Object::Diamond::generateObject() {
 	for (int i = 0; i < 8; i++) {
@@ -707,7 +715,7 @@ void Object::Diamond::setObject(int map_stage) {
 		blue_diamond[2].SetTopLeft(50, 430);
 		blue_diamond[3].SetTopLeft(860, 410);
 		blue_diamond[4].SetTopLeft(310, 640);
-		blue_diamond[5].SetTopLeft(380, 100);
+		blue_diamond[5].SetTopLeft(0, 0);
 		blue_diamond[6].SetTopLeft(0, 0);
 		blue_diamond[7].SetTopLeft(0, 0);
 		break;
@@ -719,7 +727,7 @@ void Object::Diamond::setObject(int map_stage) {
 		red_diamond[4].SetTopLeft(70, 440);
 		red_diamond[5].SetTopLeft(270, 310);
 		red_diamond[6].SetTopLeft(640, 300);
-		red_diamond[7].SetTopLeft(380, 130);	
+		red_diamond[7].SetTopLeft(380, 130);
 
 		blue_diamond[0].SetTopLeft(70, 520);
 		blue_diamond[1].SetTopLeft(640, 450);
@@ -825,13 +833,16 @@ void Object::Joystick::setObject(int map_stage) {
 		break;
 
 	case 3:
-		joystick.SetTopLeft(0, 0);
+		joystick.SetTopLeft(0, 900);
 		joystick.SetAnimation(100, true);
 		joystick.SetFrameIndexOfBitmap(0);
 
 		green_joystick.SetTopLeft(180, 805); 
 		red_joystick.SetTopLeft(450, 805);
+		green_joystick.SetFrameIndexOfBitmap(0);
+		red_joystick.SetFrameIndexOfBitmap(0);
 		break;
+
 	case 4:
 		joystick.SetTopLeft(0, 0);
 		joystick.SetAnimation(0, true);
@@ -840,6 +851,7 @@ void Object::Joystick::setObject(int map_stage) {
 		green_joystick.SetTopLeft(0, 0);
 		red_joystick.SetTopLeft(0, 0);
 		break;
+
 	case 5:
 		joystick.SetTopLeft(0, 0);
 		joystick.SetAnimation(0, true);
